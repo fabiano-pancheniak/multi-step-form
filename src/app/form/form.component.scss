@@ -1,0 +1,78 @@
+@import '../css/colors';
+
+.form-container{
+    border: solid 1px $gray-100;
+    padding: 32px;
+    width: 592px;
+    border-radius: 6px;
+    .header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+    .button{
+        background-color: $purple-mid;
+        text-transform: uppercase;
+        border-radius: 6px;
+        color: $white;
+        border: none;
+        padding: 16px;
+        font-weight: bold;
+    }
+}
+
+.header{
+    border-bottom: solid 1px $gray-100;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    .content{
+        display: flex;
+        align-items: center;
+    }
+    .circle{
+        display: flex;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+
+    .purple{
+        background-color: $purple-mid;
+    }
+    .gray{
+        background-color: $gray-100;
+        color: $gray-300;
+    }
+    .success{
+        background-color: $success;
+    }
+}
+
+.inputs{
+    margin-bottom: 16px;
+    label{
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+    input{
+        height: 48px;
+        font-size: 1rem;
+        padding: 8px;
+        border: solid 1px $gray-100;
+        border-radius: 6px;
+    }
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
