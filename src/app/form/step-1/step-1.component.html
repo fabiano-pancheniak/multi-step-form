@@ -1,0 +1,16 @@
+<div class="inputs">
+    <label for="name">Nome</label>
+    <input id="name" placeholder="Como prefere ser chamado" [(ngModel)]="name" value={{name}} />
+    <p>{{name}}</p>
+</div>
+<div class="inputs">
+    <label for="phone">Telefone</label>
+    <input id="phone" placeholder="Digite seu número de WhatsApp" [(ngModel)]="phone" />
+</div>
+<div class="inputs">
+    <label for="email">Email</label>
+    <input id="email" name="email" placeholder="Digite seu e-mail" [(ngModel)]="email" />
+</div>
+<div class="button-container">
+    <button class="button" type="button" (click)="nextStep()"> Continuar </button>
+</div>

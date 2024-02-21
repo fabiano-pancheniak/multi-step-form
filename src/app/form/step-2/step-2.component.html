@@ -1,0 +1,17 @@
+<div class="inputs">
+    <label for="company-name">Nome da empresa</label>
+    <input id="company-name" placeholder="Qual é o nome da empresa" [(ngModel)]="companyName" />
+</div>
+<div class="inputs">
+    <label for="employees">Número de funcionários</label>
+    <input id="employees" placeholder="Digite o número de colaboradores" [(ngModel)]="employees" />
+</div>
+<div class="inputs">
+    <label for="about">Sobre seu negócio</label>
+    <input id="about" name="about" placeholder="Fale um pouco sobre seus produtos ou serviços"  [(ngModel)]="about" />
+</div>
+<div class="button-container">
+    <button (click)="goBack()">Voltar</button>
+    <button type="button" (click)="nextStep()">Próximo</button>
+</div>
+

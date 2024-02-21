@@ -1,0 +1,33 @@
+@import '../../css/colors';
+
+.inputs{
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    label{
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+    input{
+        height: 48px;
+        font-size: 1rem;
+        padding: 8px;
+        border: solid 1px $gray-100;
+        border-radius: 6px;
+    }
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;    
+    .button{
+        background-color: $purple-mid;
+        text-transform: uppercase;
+        border-radius: 6px;
+        color: $white;
+        border: none;
+        padding: 16px;
+        font-weight: bold;
+    }
+}
+
