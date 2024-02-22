@@ -11,7 +11,11 @@ import { FormService } from '../../form.service';
   styleUrl: './step-2.component.scss'
 })
 export class Step2Component {
-  constructor(private router: Router, private formService: FormService){ }
+  constructor(private router: Router, private formService: FormService){
+    if(formService.getFormData().step != 2){
+      router.navigateByUrl('/form/step1')
+    }
+  }
 
   companyName: string = this.formService.getFormData().companyName
   employees: string = this.formService.getFormData().employees
@@ -20,11 +24,14 @@ export class Step2Component {
 
   goBack(){
     this.formService.emitChange(1)
+    this.formService.updateStep(1);
+    this.formService.setSecondStepData(this.companyName, this.employees, this.about)
     this.router.navigateByUrl('/form/step1')
   }
   
   nextStep(){
     this.formService.emitChange(3)
+    this.formService.updateStep(3);
     this.formService.setSecondStepData(this.companyName, this.employees, this.about)
     this.router.navigateByUrl('/form/step3')
   }

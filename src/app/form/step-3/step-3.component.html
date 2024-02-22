@@ -1,1 +1,18 @@
-<button class="button" type="button" (click)="goBack()"> Voltar </button>
+<div class="inputs">
+    <label for="project-goals">Objetivos do projeto</label>
+    <textarea id="project-goals" name="project-goals" class="input-extended" placeholder="Descreva quais os objetivos desse projeto" [(ngModel)]="projectGoals" ></textarea>
+</div>
+<div class="button-container">
+    <button class="btn-secondary" type="button" (click)="goBack()"> Voltar </button>
+    <button class="button" type="button" (click)="sendForm()"> Enviar proposta </button>
+</div>
+<div *ngIf="formSent">
+    <br>
+    {{ 'Nome: ' + formData.name }} <br>
+    {{ 'Fone: ' + formData.phone }} <br>
+    {{ 'E-mail: ' + formData.email }} <br>
+    {{ 'Empresa: ' + formData.companyName }} <br>
+    {{ 'Quantidade de colaboradores: ' + formData.employees }} <br>
+    {{ 'Sobre: ' + formData.about }} <br>
+    {{ 'Objetivos: ' + formData.projectGoals }} <br>
+</div>

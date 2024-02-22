@@ -12,23 +12,26 @@ export class FormService {
     email:  '',
     companyName: '',
     employees: '',
-    about: ''
+    about: '',
+    projectGoals: ''
   }
 
-  constructor() { }
+  constructor(){ }
 
   setFirstStepData(name: string, phone: string, email: string){
     this.formData.name = name
     this.formData.phone = phone
     this.formData.email = email
-    this.formData.step = 2
   }
   
   setSecondStepData(companyName: string, employees: string, about: string){
     this.formData.companyName = companyName
     this.formData.employees = employees
     this.formData.about = about
-    this.formData.step = 3
+  }
+
+  setFormData(projectGoals: string){
+    this.formData.projectGoals = projectGoals
   }
 
   updateStep(step: number){

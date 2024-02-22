@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './step-1.component.scss'
 })
 export class Step1Component{
-  constructor(private router: Router, private formService: FormService){  }
+  constructor(private router: Router, private formService: FormService){ }
   
   name: string = this.formService.getFormData().name
   phone: string = this.formService.getFormData().phone
@@ -19,6 +19,7 @@ export class Step1Component{
   
   nextStep(){
     this.formService.emitChange(2);
+    this.formService.updateStep(2);
     this.formService.setFirstStepData(this.name, this.phone, this.email)
     this.router.navigateByUrl('/form/step2')
   }

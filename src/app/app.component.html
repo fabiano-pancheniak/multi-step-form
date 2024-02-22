@@ -1,18 +1,26 @@
 <div class="form-container">
-    <h1>{{currentStep}}</h1>
     <section class="header">
         <div class="content">
-            <div class="circle purple"> 1 </div>
+            <div class='circle' [ngClass]="cssClassesArray[0]">
+                <span *ngIf="cssClassesArray[0] != 'success'" [innerHTML]="1"></span>
+                <img *ngIf="cssClassesArray[0] == 'success'" src="../assets/check.svg"> 
+            </div>
             <h4>Contato</h4>
         </div>
         <span><strong>></strong></span>
         <div class="content">
-            <div class="circle gray"> 2 </div>
+            <div class="circle" [ngClass]="cssClassesArray[1]"> 
+                <span *ngIf="cssClassesArray[1] != 'success'" [innerHTML]="2"></span>
+                <img *ngIf="cssClassesArray[1] == 'success'" src="../assets/check.svg"> 
+            </div>
             <h4>Empresa</h4>
         </div>
         <span><strong>></strong></span>
         <div class="content">
-            <div class="circle gray"> 3 </div>
+            <div class="circle" [ngClass]="cssClassesArray[2]"> 
+                <span *ngIf="cssClassesArray[2] != 'success'" [innerHTML]="3"></span>
+                <img *ngIf="cssClassesArray[2] == 'success'" src="../assets/check.svg"> 
+            </div>
             <h4>Projeto</h4>
         </div>
     </section>
