@@ -25,6 +25,11 @@
         border-radius: 6px;
         padding: 16px;
         font-weight: bold;
+        &:hover{
+            background-color: $purple-light;
+            cursor: pointer;
+            color: $white;
+        }
     }
     .button{
         background-color: $purple-mid;
