@@ -15,16 +15,46 @@ export class Step1Component{
   name: string = this.formService.getFormData().name
   phone: string = this.formService.getFormData().phone
   email: string = this.formService.getFormData().email
+  isValid = this.validateStep()
 
   onChange(e: any){
     console.log(e);
   }
   
   nextStep(){
+    console.log(this.validateStep())
+    return
     this.formService.emitChange(2);
     this.formService.updateStep(2);
-    this.formService.setFirstStepData(this.name, this.phone, this.email)
     this.router.navigateByUrl('/form/step2')
+  }
+
+  updateName(value: string){
+    this.name = value
+    this.validateStep()
+    this.formService.setFirstStepData(this.name, this.phone, this.email)
+  }
+  updatePhone(value: string){
+    this.phone = value
+    this.validateStep()
+    this.formService.setFirstStepData(this.name, this.phone, this.email)
+  }
+  updateEmail(value: string){
+    this.email = value
+    this.validateStep()
+    this.formService.setFirstStepData(this.name, this.phone, this.email)
+  }
+
+  validateStep(): boolean{
+    if(
+      this.formService.getFormData().name.length == 0 ||
+      this.formService.getFormData().phone.length == 0 ||
+      this.formService.getFormData().email.length == 0
+    )
+    {
+      return false
+    }
+    return true
   }
 } 
 

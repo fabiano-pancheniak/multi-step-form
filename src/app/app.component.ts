@@ -32,6 +32,9 @@ export class AppComponent{
         case 3:
           this.cssClassesArray = ['success', 'success', 'purple'] 
           break;
+        case 4:
+          this.cssClassesArray = ['success', 'success', 'success'] 
+          break;
     }
   }
 

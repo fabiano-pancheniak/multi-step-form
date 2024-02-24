@@ -1,15 +1,15 @@
 <div class="inputs">
     <label for="name">Nome</label>
-    <input id="name" placeholder="Como prefere ser chamado" (ngModelChange)="onChange($event)" [(ngModel)]="name" value={{name}} />
+    <input id="name" placeholder="Como prefere ser chamado" (ngModelChange)="updateName($event)" [(ngModel)]="name" value={{name}} />
 </div>
 <div class="inputs">
     <label for="phone">Telefone</label>
-    <input id="phone" placeholder="Digite seu número de WhatsApp" (ngModelChange)="onChange($event)" [(ngModel)]="phone" />
+    <input id="phone" placeholder="Digite seu número de WhatsApp" (ngModelChange)="updatePhone($event)" [(ngModel)]="phone"  value={{phone}} />
 </div>
 <div class="inputs">
     <label for="email">Email</label>
-    <input id="email" name="email" placeholder="Digite seu e-mail" (ngModelChange)="onChange($event)" [(ngModel)]="email" />
+    <input id="email" name="email" placeholder="Digite seu e-mail" (ngModelChange)="updateEmail($event)" [(ngModel)]="email"  value={{email}} />
 </div>
 <div class="button-container">
-    <button class="button" type="button" (click)="nextStep()"> Continuar </button>
+    <button class="button" type="button" (click)="nextStep()" [disabled]="!validateStep"> Continuar </button>
 </div>

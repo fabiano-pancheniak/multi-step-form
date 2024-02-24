@@ -12,9 +12,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './step-3.component.scss'
 })
 export class Step3Component{
-  projectGoals: string = ''
-  formSent: boolean = false
-  formData: any = {}
+  projectGoals: string = this.formService.getFormData().projectGoals
   constructor(private formService: FormService, private router: Router){
     if(formService.getFormData().step != 3){
       router.navigateByUrl('/form/step1')
@@ -23,12 +21,18 @@ export class Step3Component{
 
   sendForm(){
     this.formService.setFormData(this.projectGoals)
-    this.formSent = true
-    this.formData = this.formService.getFormData()
+    this.formService.setFormSent(true)
+    this.formService.emitChange(4)
+    this.router.navigateByUrl('/form/sent')
   }
   goBack(){
     this.formService.emitChange(2)
     this.formService.updateStep(2);
+    this.formService.setFormData(this.projectGoals)
     this.router.navigateByUrl('/form/step2')
+  }
+  updateProjectGoals(value: string) {
+    this.projectGoals = value
+    this.formService.setFormData(this.projectGoals)
   }
 }

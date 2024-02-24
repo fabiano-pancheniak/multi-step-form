@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class FormService {
   formData = {
+    sent: false,
     step: 1,
     name:  '',
     phone:  '',
@@ -34,12 +35,30 @@ export class FormService {
     this.formData.projectGoals = projectGoals
   }
 
+  setFormSent(sent: boolean){
+    this.formData.sent = sent
+  }
+
   updateStep(step: number){
     this.formData.step = step
   }
 
   getFormData(){
     return this.formData
+  }
+
+  resetForm(){
+    this.formData = {
+      sent: false,
+      step: 1,
+      name:  '',
+      phone:  '',
+      email:  '',
+      companyName: '',
+      employees: '',
+      about: '',
+      projectGoals: ''
+    }
   }
 
   private emitChangeSource = new Subject<any>();

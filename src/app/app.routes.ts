@@ -6,6 +6,7 @@ import { Step3Component } from './form/step-3/step-3.component';
 import { formGuard } from './form.guard';
 import { FormService } from './form.service';
 import { inject } from '@angular/core';
+import { FormSentComponent } from './form-sent/form-sent.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
       { path: 'step1', component: Step1Component },
       { path: 'step2', component: Step2Component },
       { path: 'step3', component: Step3Component },
+      { path: 'sent', component: FormSentComponent }
     ],
   },  
 ];

@@ -35,4 +35,17 @@ export class Step2Component {
     this.formService.setSecondStepData(this.companyName, this.employees, this.about)
     this.router.navigateByUrl('/form/step3')
   }
+
+  updateAbout(value: any) {
+    this.about = value
+    this.formService.setSecondStepData(this.companyName, this.employees, this.about)
+  }
+  updateEmployees(value: any) {
+    this.employees = value
+    this.formService.setSecondStepData(this.companyName, this.employees, this.about)
+  }
+  updateCompanyName(value: any) {
+    this.companyName = value
+    this.formService.setSecondStepData(this.companyName, this.employees, this.about)
+  }
 }

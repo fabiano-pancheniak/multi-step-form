@@ -1,0 +1,17 @@
+@import '../css/colors';
+
+.btn-primary{
+    background-color: $purple-mid;
+    color: $white;
+    border: solid 1px $purple-mid;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 16px;
+    font-weight: bold;
+    &:hover{
+        background-color: $purple-light;
+        cursor: pointer;
+        color: $white;
+    }
+}
+    
