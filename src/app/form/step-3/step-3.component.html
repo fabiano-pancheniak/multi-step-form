@@ -1,17 +1,17 @@
-<div class="inputs">
-    <label for="project-goals">Objetivos do projeto</label>
-    <textarea 
+<form [formGroup]="projectInfo" (ngSubmit)="sendForm()">
+    <div class="inputs">
+        <label for="project-goals">Objetivos do projeto</label>
+        <textarea 
         id="project-goals" 
         name="project-goals" 
         class="input-extended"
         placeholder="Descreva quais os objetivos desse projeto" 
-        (ngModelChange)="updateProjectGoals($event)" 
-        [(ngModel)]="projectGoals" 
-        [value]="projectGoals"
-    >
-    </textarea>
-</div>
-<div class="button-container">
-    <button class="btn-secondary" type="button" (click)="goBack()"> Voltar </button>
-    <button class="button" type="button" (click)="sendForm()"> Enviar proposta </button>
-</div>
+        formControlName="projectGoals"
+        >
+        </textarea>
+    </div>
+    <div class="button-container">
+        <button class="btn-secondary" type="button" (click)="goBack()"> Voltar </button>
+        <button [ngClass]="{'disabled': !projectInfo.valid, 'button': projectInfo.valid}" type="submit" [disabled]="!projectInfo.valid"> Enviar proposta </button>
+    </div>
+</form>

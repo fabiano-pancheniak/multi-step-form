@@ -1,17 +1,19 @@
-<div class="inputs">
-    <label for="company-name">Nome da empresa</label>
-    <input id="company-name" placeholder="Qual é o nome da empresa" (ngModelChange)="updateCompanyName($event)" [(ngModel)]="companyName" />
-</div>
-<div class="inputs">
-    <label for="employees">Número de funcionários</label>
-    <input id="employees" placeholder="Digite o número de colaboradores" (ngModelChange)="updateEmployees($event)" [(ngModel)]="employees" />
-</div>
-<div class="inputs">
-    <label for="about">Sobre seu negócio</label>
-    <input id="about" name="about" placeholder="Fale um pouco sobre seus produtos ou serviços" (ngModelChange)="updateAbout($event)" [(ngModel)]="about" />
-</div>
-<div class="button-container">
-    <button type="button" class="btn-secondary" (click)="goBack()">Voltar</button>
-    <button type="button" class="button" (click)="nextStep()">Próximo</button>
-</div>
+<form [formGroup]="companyInfo" (ngSubmit)="nextStep()">
+    <div class="inputs">
+        <label for="company-name">Nome da empresa</label>
+        <input id="company-name" placeholder="Qual é o nome da empresa" formControlName="companyName"/>
+    </div>
+    <div class="inputs">
+        <label for="employees">Número de funcionários</label>
+        <input id="employees" placeholder="Digite o número de colaboradores" formControlName="employees"/>
+    </div>
+    <div class="inputs">
+        <label for="about">Sobre seu negócio</label>
+        <input id="about" name="about" placeholder="Fale um pouco sobre seus produtos ou serviços" formControlName="about"/>
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn-secondary" (click)="goBack()">Voltar</button>
+        <button [ngClass]="{'disabled': !companyInfo.valid, 'button': companyInfo.valid}" type="submit" [disabled]="!companyInfo.valid">Próximo</button>
+    </div>
+</form>
 

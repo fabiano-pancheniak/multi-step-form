@@ -17,21 +17,19 @@ export class FormService {
     projectGoals: ''
   }
 
-  constructor(){ }
-
-  setFirstStepData(name: string, phone: string, email: string){
+  setFirstStepData(name: any, phone: any, email: any){
     this.formData.name = name
     this.formData.phone = phone
     this.formData.email = email
   }
   
-  setSecondStepData(companyName: string, employees: string, about: string){
+  setSecondStepData(companyName: any, employees: any, about: any){
     this.formData.companyName = companyName
     this.formData.employees = employees
     this.formData.about = about
   }
 
-  setFormData(projectGoals: string){
+  setFormData(projectGoals: any){
     this.formData.projectGoals = projectGoals
   }
 
@@ -62,9 +60,7 @@ export class FormService {
   }
 
   private emitChangeSource = new Subject<any>();
-  // Observable string streams
   changeEmitted$ = this.emitChangeSource.asObservable();
-  // Service message commands
   emitChange(change: any) {
       this.emitChangeSource.next(change);
   }

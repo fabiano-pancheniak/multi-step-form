@@ -1,55 +1,31 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormService } from '../../form.service';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-step-1',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './step-1.component.html',
   styleUrl: './step-1.component.scss'
 })
 export class Step1Component{
-  constructor(private router: Router, private formService: FormService){ }  
-  name: string = this.formService.getFormData().name
-  phone: string = this.formService.getFormData().phone
-  email: string = this.formService.getFormData().email
-  isValid = this.validateStep()
+  personalInfo = new FormGroup({
+    name: new FormControl(this.formService.getFormData().name, Validators.required),
+    phone: new FormControl(this.formService.getFormData().phone, Validators.required),
+    email: new FormControl(this.formService.getFormData().email, Validators.required),
+  });
 
+  constructor(private router: Router, private formService: FormService){ }
+  
   nextStep(){
-    if(this.validateStep()){
-      this.formService.emitChange(2);
-      this.formService.updateStep(2);
-      this.router.navigateByUrl('/form/step2')
-    }
-  }
-  updateName(value: string){
-    this.name = value
-    this.validateStep()
-    this.formService.setFirstStepData(this.name, this.phone, this.email)
-  }
-  updatePhone(value: string){
-    this.phone = value
-    this.validateStep()
-    this.formService.setFirstStepData(this.name, this.phone, this.email)
-  }
-  updateEmail(value: string){
-    this.email = value
-    this.validateStep()
-    this.formService.setFirstStepData(this.name, this.phone, this.email)
-  }
-
-  validateStep(): boolean{
-    if(
-      this.formService.getFormData().name.length == 0 ||
-      this.formService.getFormData().phone.length == 0 ||
-      this.formService.getFormData().email.length == 0
-    )
-    {
-      return false
-    }
-    return true
+    const values = this.personalInfo.value    
+    this.formService.setFirstStepData(values.name, values.phone, values.email)
+    this.formService.emitChange(2);
+    this.formService.updateStep(2);
+    this.router.navigateByUrl('/form/step2')
   }
 } 
 

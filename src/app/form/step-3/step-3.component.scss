@@ -33,20 +33,29 @@
         border-radius: 6px;
         padding: 16px;
         font-weight: bold;
+    }
+    .button{
+        background-color: $purple-mid;
+        color: $white;
+        border: solid 1px $purple-mid;
         &:hover{
             background-color: $purple-light;
             cursor: pointer;
             color: $white;
         }
     }
-    .button{
-        background-color: $purple-mid;
-        color: $white;
-        border: solid 1px $purple-mid;
-    }
     .btn-secondary{
         color: $purple-mid;
         border: solid 1px $purple-mid;
         background-color: $white;
+        &:hover{
+            background-color: $purple-light;
+            cursor: pointer;
+            color: $white;
+        }
+    }
+    .disabled{
+        background-color: rgb(240, 240, 240);
+        border: none;
     }
 }

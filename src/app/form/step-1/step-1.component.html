@@ -1,15 +1,17 @@
-<div class="inputs">
-    <label for="name">Nome</label>
-    <input id="name" placeholder="Como prefere ser chamado" (ngModelChange)="updateName($event)" [(ngModel)]="name" value={{name}} />
-</div>
-<div class="inputs">
-    <label for="phone">Telefone</label>
-    <input id="phone" placeholder="Digite seu número de WhatsApp" (ngModelChange)="updatePhone($event)" [(ngModel)]="phone"  value={{phone}} />
-</div>
-<div class="inputs">
-    <label for="email">Email</label>
-    <input id="email" name="email" placeholder="Digite seu e-mail" (ngModelChange)="updateEmail($event)" [(ngModel)]="email"  value={{email}} />
-</div>
-<div class="button-container">
-    <button class="button" type="button" (click)="nextStep()" [disabled]="!validateStep"> Continuar </button>
-</div>
+<form [formGroup]="personalInfo" (ngSubmit)="nextStep()">
+    <div class="inputs">
+        <label for="name">Nome: </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+    <div class="inputs">
+        <label for="phone">Fone: </label>
+        <input id="phone" type="text" formControlName="phone">
+    </div>
+    <div class="inputs">
+        <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email">
+    </div>
+    <div class="button-container">
+        <button [ngClass]="{'disabled': !personalInfo.valid, 'button': personalInfo.valid}" type="submit" [disabled]="!personalInfo.valid">Continuar</button>
+    </div>
+</form>
