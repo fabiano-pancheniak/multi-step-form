@@ -3,12 +3,10 @@ import { FormComponent } from './form/form.component';
 import { Step2Component } from './form/step-2/step-2.component';
 import { Step1Component } from './form/step-1/step-1.component';
 import { Step3Component } from './form/step-3/step-3.component';
-import { formGuard } from './form.guard';
-import { FormService } from './form.service';
-import { inject } from '@angular/core';
 import { FormSentComponent } from './form-sent/form-sent.component';
 
 export const routes: Routes = [
+  {path: '', redirectTo: 'form', pathMatch: 'full'},
   {
     path: 'form',
     component: FormComponent, // Create a wrapper component for the form

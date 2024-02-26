@@ -17,18 +17,13 @@ export class Step1Component{
   email: string = this.formService.getFormData().email
   isValid = this.validateStep()
 
-  onChange(e: any){
-    console.log(e);
-  }
-  
   nextStep(){
-    console.log(this.validateStep())
-    return
-    this.formService.emitChange(2);
-    this.formService.updateStep(2);
-    this.router.navigateByUrl('/form/step2')
+    if(this.validateStep()){
+      this.formService.emitChange(2);
+      this.formService.updateStep(2);
+      this.router.navigateByUrl('/form/step2')
+    }
   }
-
   updateName(value: string){
     this.name = value
     this.validateStep()
