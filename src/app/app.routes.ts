@@ -9,9 +9,10 @@ export const routes: Routes = [
   {path: '', redirectTo: 'form', pathMatch: 'full'},
   {
     path: 'form',
-    component: FormComponent, // Create a wrapper component for the form
+    component: FormComponent, 
+    title: 'Multi Step Form',
     children: [
-      { path: '', redirectTo: 'step1', pathMatch: 'full' }, // Redirect to step1 by default
+      { path: '', redirectTo: 'step1', pathMatch: 'full' },
       { path: 'step1', component: Step1Component },
       { path: 'step2', component: Step2Component },
       { path: 'step3', component: Step3Component },

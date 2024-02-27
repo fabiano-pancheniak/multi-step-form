@@ -5,9 +5,11 @@
     padding: 32px;
     width: 592px;
     border-radius: 6px;
+    margin: 64px auto;
     .header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     .inputs{
         display: flex;
@@ -53,5 +55,19 @@
     }
     .success{
         background-color: $success;
+    }
+}
+
+@media (max-width: 500px){
+    .form-container{
+        border: solid 1px $gray-100;
+        padding: 32px;
+        width: 100%;
+        border-radius: 6px;
+        margin: auto;
+    }
+
+    .step-arrow{
+        display: none;
     }
 }
